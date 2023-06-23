@@ -1,5 +1,7 @@
 package org.abhi;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,7 +13,9 @@ public class CricketCoach implements Coach{
         System.out.println("Cricket Default constructor");
     }
 
-    public void setFortune(Fortune fortune) {
+    @Autowired
+    @Qualifier(value = "funnyFortune")
+    public void setFortune(Fortune fortune) { // Setter Injection
         this.fortune = fortune;
         System.out.println("Cricket Setter");
     }

@@ -1,16 +1,19 @@
 package org.abhi;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("myBaseballCoach")
 public class BaseballCoach implements Coach{
 
-    private Fortune fortune;
+    private HappyFortune fortune;
 
-//    public BaseballCoach(Fortune fortune) {
-//        this.fortune = fortune;
-//        System.out.println("Baseball Coach Default");
-//    }
+    @Autowired
+    public BaseballCoach(HappyFortune fortune) { //Constructor Injection
+        this.fortune = fortune;
+        System.out.println("Baseball Coach Default");
+    }
 
 
     @Override
